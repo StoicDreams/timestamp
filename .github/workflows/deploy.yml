@@ -1,0 +1,21 @@
+name: Build and Test
+
+on:
+  push:
+    branches:
+    - main
+
+env:
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'   # set this to the path to your web app project, defaults to the repository root
+
+jobs:
+  build-and-test:
+    runs-on: windows-latest
+    steps:
+    - name: 'Checkout GitHub action'
+      uses: actions/checkout@v3
+    - name: 'Build and Test'
+      run: |
+        cargo build
+        cargo test
+        cargo audit
