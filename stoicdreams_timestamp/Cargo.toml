@@ -2,6 +2,14 @@
 name = "stoicdreams_timestamp"
 version = "0.1.0"
 edition = "2021"
+description = "Lightweight Rust library for storing and managing timestamps, dates, and times."
+keywords = ["chrono", "timestamp", "date", "time", "datetime", "stoicdreams"]
+categories = ["date-and-time"]
+license = "MIT"
+authors = ["Erik Gasssler"]
+documentation = "https://docs.rs/stoicdreams_timestamp"
+repository = "https://github.com/StoicDreams/timestamp"
+homepage = "https://www.stoicdreams.com"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
