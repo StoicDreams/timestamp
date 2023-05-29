@@ -1,0 +1,24 @@
+
+# Ignore IDE files
+.vs
+.idea
+*.lutconfig
+*.coverage
+
+# Ignore build files
+bin
+obj
+temp
+*.dll
+target
+dist
+*.profraw
+
+# Ignore User files
+*.[Uu]ser
+local
+coverage
+*.local.*
+*.pubxml
+desktop.ini
+*.DS_Store
