@@ -1,5 +1,9 @@
 pub use crate::datetime;
 pub use crate::datetime::*;
+pub use crate::precisetime;
+pub use crate::precisetime::*;
+pub use crate::stopwatch;
+pub use crate::stopwatch::*;
 pub use crate::time;
 pub use crate::time::*;
 pub use crate::time_helpers;

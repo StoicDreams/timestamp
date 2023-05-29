@@ -1,8 +1,22 @@
 use crate::prelude::*;
 use serde::{Deserialize, Serialize};
 
-pub(crate) type DateTimeUnit = i64;
+pub type DateTimeUnit = i64;
 
+/// A date and time struct that can be used to represent a time in milliseconds.
+/// Expected usage is to use one of the following methods to create a new DateTime struct:
+/// - `DateTime::now()`
+/// - `DateTime::new(year, month, day, hour, minutes, seconds)`
+/// - `DateTime::from_unix_epoch_milliseconds(milliseconds)`
+///
+/// Example:
+/// ```
+/// use stoicdreams_timestamp::prelude::*;
+///
+/// let datetime = DateTime::now();
+/// let datetime_display = datetime.format();
+/// println!("{}", datetime_display);
+/// ```
 #[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct DateTime {
     /// Milliseconds since the start of AD 0.
@@ -19,7 +33,7 @@ impl DateTime {
     /// Create a new `DateTime` from the current system time.
     /// Time is UTC.
     pub fn now() -> Self {
-        Self::from_milliseconds(now())
+        Self::from_milliseconds(now_milliseconds())
     }
 
     /// Create a new `DateTime` from the provided values.

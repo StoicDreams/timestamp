@@ -1,8 +1,88 @@
 use crate::prelude::*;
 use serde::{Deserialize, Serialize};
 
-type TimeUnit = u64;
+pub type TimeUnit = u64;
 
+/// A time struct that can be used to represent a time in milliseconds.
+/// Expected usage is to use one of the following methods to create a new Time struct:
+/// - `Time::new(days, hours, minutes, seconds)`
+/// - `Time::from_days(days)`
+/// - `Time::from_hours(hours)`
+/// - `Time::from_minutes(minutes)`
+/// - `Time::from_seconds(seconds)`
+/// - `Time::from_milliseconds(milliseconds)`
+///
+/// Example:
+/// ```
+/// use stoicdreams_timestamp::prelude::*;
+///
+/// let time = Time::new(0, 0, 0, 0);
+/// assert_eq!(time.get_milliseconds_of_second(), 0);
+/// assert_eq!(time.get_seconds_of_minute(), 0);
+/// assert_eq!(time.get_minutes_of_hour(), 0);
+/// assert_eq!(time.get_hour_of_day(), 0);
+/// assert_eq!(time.format(), "00:00:00.000");
+///```
+///
+/// Example:
+/// ```
+/// use stoicdreams_timestamp::prelude::*;
+///
+/// let time = Time::from_days(1);
+/// assert_eq!(time.get_milliseconds_of_second(), 0);
+/// assert_eq!(time.get_seconds_of_minute(), 0);
+/// assert_eq!(time.get_minutes_of_hour(), 0);
+/// assert_eq!(time.get_hour_of_day(), 0);
+/// assert_eq!(time.format(), "1 00:00:00.000");
+///```
+///
+/// Example:
+/// ```
+/// use stoicdreams_timestamp::prelude::*;
+///
+/// let time = Time::from_hours(1);
+/// assert_eq!(time.get_milliseconds_of_second(), 0);
+/// assert_eq!(time.get_seconds_of_minute(), 0);
+/// assert_eq!(time.get_minutes_of_hour(), 0);
+/// assert_eq!(time.get_hour_of_day(), 1);
+/// assert_eq!(time.format(), "01:00:00.000");
+///```
+///
+/// Example:
+/// ```
+/// use stoicdreams_timestamp::prelude::*;
+///
+/// let time = Time::from_minutes(1);
+/// assert_eq!(time.get_milliseconds_of_second(), 0);
+/// assert_eq!(time.get_seconds_of_minute(), 0);
+/// assert_eq!(time.get_minutes_of_hour(), 1);
+/// assert_eq!(time.get_hour_of_day(), 0);
+/// assert_eq!(time.format(), "00:01:00.000");
+///```
+///
+/// Example:
+/// ```
+/// use stoicdreams_timestamp::prelude::*;
+///
+/// let time = Time::from_seconds(1);
+/// assert_eq!(time.get_milliseconds_of_second(), 0);
+/// assert_eq!(time.get_seconds_of_minute(), 1);
+/// assert_eq!(time.get_minutes_of_hour(), 0);
+/// assert_eq!(time.get_hour_of_day(), 0);
+/// assert_eq!(time.format(), "00:00:01.000");
+///```
+///
+/// Example:
+/// ```
+/// use stoicdreams_timestamp::prelude::*;
+///
+/// let time = Time::from_milliseconds(1);
+/// assert_eq!(time.get_milliseconds_of_second(), 1);
+/// assert_eq!(time.get_seconds_of_minute(), 0);
+/// assert_eq!(time.get_minutes_of_hour(), 0);
+/// assert_eq!(time.get_hour_of_day(), 0);
+/// assert_eq!(time.format(), "00:00:00.001");
+/// ```
 #[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct Time {
     milliseconds: TimeUnit,
@@ -68,27 +148,27 @@ impl Time {
         time_format(self.milliseconds as DateTimeUnit, "%D %H:%M:%S.%f")
     }
 
-    /// Returns the total number of milliseconds since the Unix epoch.
+    /// Returns the total number of milliseconds.
     pub fn to_milliseconds(&self) -> TimeUnit {
         self.milliseconds
     }
 
-    /// Returns the total number of seconds since the Unix epoch.
+    /// Returns the total number of seconds.
     pub fn to_seconds(&self) -> TimeUnit {
         self.milliseconds / 1000
     }
 
-    /// Returns the total number of minutes since the Unix epoch.
+    /// Returns the total number of minutes.
     pub fn to_minutes(&self) -> TimeUnit {
         self.milliseconds / (60 * 1000)
     }
 
-    /// Returns the total number of hours since the Unix epoch.
+    /// Returns the total number of hours.
     pub fn to_hours(&self) -> TimeUnit {
         self.milliseconds / (60 * 60 * 1000)
     }
 
-    /// Returns the total number of days since the Unix epoch.
+    /// Returns the total number of days.
     pub fn to_days(&self) -> TimeUnit {
         self.milliseconds / (24 * 60 * 60 * 1000)
     }

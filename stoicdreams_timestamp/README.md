@@ -1,4 +1,4 @@
-# [stoicdreams_timestamp](docsrs): TimeStamp, DateTime, and Time
+# [stoicdreams_timestamp](docsrs): TimeStamp, StopWatch, DateTime, and Time
 
 [![Timestamp GitHub Actions][gh-image]][gh-checks]
 [![Timestamp on crates.io][cratesio-image]][cratesio]
@@ -22,6 +22,7 @@ This project was created after discovering a security vulnerability exists (foun
 - Store data as signed integer to allow potential for supporting BC dates and times.
 - Store DateTime values with 0 representing midnight 0 AD instead of the more commonly used Unix Epoch at midnight 1970 AD.
 - Default string rendering for date and time is in UTC and follows the ISO 8601 standard.
+- Added StopWatch and PreciseTime for tracking precise timings - typically for measuring and tracking performance.
 
 ## Future Goals / Features
 
@@ -39,7 +40,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-stoicdreams_timestamp = "0.1.0"
+stoicdreams_timestamp = "0.1.1"
 ```
 
 Use prelude for simple access to all structs and methods.
