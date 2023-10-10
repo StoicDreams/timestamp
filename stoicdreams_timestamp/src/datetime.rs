@@ -93,7 +93,6 @@ impl DateTime {
         if milliseconds < 0 {
             panic!("DateTime does not yet support dates before AD 0");
         }
-        let milliseconds = milliseconds;
         Self { milliseconds }
     }
 
