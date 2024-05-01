@@ -142,13 +142,10 @@ pub type PreciseTimeUnit = u128;
 /// assert_eq!(time.to_days(), 1);
 /// assert_eq!(time.format(), "1 00:00:00.000000000");
 /// ```
-#[derive(Debug, Clone, Deserialize, Serialize)]
+#[derive(Debug, Clone, Deserialize, Serialize, FromRow)]
 pub struct PreciseTime {
     nanoseconds: PreciseTimeUnit,
 }
-
-#[cfg(feature = "sqlx")]
-impl sqlx::FromRow for PreciseTime {}
 
 impl PreciseTime {
     pub fn new(

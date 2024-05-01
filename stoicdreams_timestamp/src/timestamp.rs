@@ -38,14 +38,11 @@ use std::time::SystemTime;
 /// let updated_display = timestamp.get_updated();
 /// assert_ne!(created_display, updated_display);
 /// ```
-#[derive(Debug, Clone, Deserialize, Serialize)]
+#[derive(Debug, Clone, Deserialize, Serialize, FromRow)]
 pub struct TimeStamp {
     pub created: DateTimeUnit,
     pub updated: DateTimeUnit,
 }
-
-#[cfg(feature = "sqlx")]
-impl sqlx::FromRow for TimeStamp {}
 
 /// Returns the current time in milliseconds since the Unix epoch (Midnight of Jan 1st, 1970).
 pub fn now_milliseconds() -> DateTimeUnit {

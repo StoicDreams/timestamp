@@ -28,13 +28,10 @@ pub type StopWatchUnit = u128;
 /// let utc_formatted = "00:00:00.000000000";
 /// assert_ne!(utc_formatted, ellapsed.format());
 /// ```
-#[derive(Debug, Clone, Deserialize, Serialize)]
+#[derive(Debug, Clone, Deserialize, Serialize, FromRow)]
 pub struct StopWatch {
     start: StopWatchUnit,
 }
-
-#[cfg(feature = "sqlx")]
-impl sqlx::FromRow for StopWatch {}
 
 /// Returns the current time in nanoseconds since start (Midnight of Jan 1st, 1970).
 pub fn now_nanoseconds() -> StopWatchUnit {
