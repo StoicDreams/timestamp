@@ -147,6 +147,9 @@ pub struct PreciseTime {
     nanoseconds: PreciseTimeUnit,
 }
 
+#[cfg(feature = "sqlx")]
+impl sqlx::FromRow for PreciseTime {}
+
 impl PreciseTime {
     pub fn new(
         days: u16,

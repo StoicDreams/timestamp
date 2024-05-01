@@ -23,6 +23,9 @@ pub struct DateTime {
     milliseconds: DateTimeUnit,
 }
 
+#[cfg(feature = "sqlx")]
+impl sqlx::FromRow for DateTime {}
+
 impl Default for DateTime {
     fn default() -> Self {
         Self::now()

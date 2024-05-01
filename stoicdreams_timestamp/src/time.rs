@@ -88,6 +88,9 @@ pub struct Time {
     milliseconds: TimeUnit,
 }
 
+#[cfg(feature = "sqlx")]
+impl sqlx::FromRow for Time {}
+
 impl Time {
     pub fn new(days: u16, hours: u8, minutes: u8, seconds: u8) -> Self {
         let seconds = (days as TimeUnit * 24 * 60 * 60)

@@ -33,6 +33,9 @@ pub struct StopWatch {
     start: StopWatchUnit,
 }
 
+#[cfg(feature = "sqlx")]
+impl sqlx::FromRow for StopWatch {}
+
 /// Returns the current time in nanoseconds since start (Midnight of Jan 1st, 1970).
 pub fn now_nanoseconds() -> StopWatchUnit {
     let now = SystemTime::now()

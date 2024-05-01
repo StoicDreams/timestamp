@@ -44,6 +44,9 @@ pub struct TimeStamp {
     pub updated: DateTimeUnit,
 }
 
+#[cfg(feature = "sqlx")]
+impl sqlx::FromRow for TimeStamp {}
+
 /// Returns the current time in milliseconds since the Unix epoch (Midnight of Jan 1st, 1970).
 pub fn now_milliseconds() -> DateTimeUnit {
     let now = SystemTime::now()
