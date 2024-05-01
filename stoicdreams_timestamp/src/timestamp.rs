@@ -1,6 +1,5 @@
 use crate::prelude::*;
 use serde::{Deserialize, Serialize};
-use std::time;
 use std::time::SystemTime;
 
 /// A time stamp object that stores the time of creation and the time of last update.
@@ -38,7 +37,7 @@ use std::time::SystemTime;
 /// let updated_display = timestamp.get_updated();
 /// assert_ne!(created_display, updated_display);
 /// ```
-#[derive(Debug, Clone, Deserialize, Serialize, FromRow)]
+#[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct TimeStamp {
     pub created: DateTimeUnit,
     pub updated: DateTimeUnit,
@@ -81,7 +80,7 @@ impl TimeStamp {
         let now = now_milliseconds();
         let updated = self.updated;
         let milliseconds = time.to_milliseconds() as DateTimeUnit;
-        if updated + milliseconds < now {
+        if updated + milliseconds <= now {
             return true;
         }
         false
@@ -91,7 +90,7 @@ impl TimeStamp {
         let now = now_milliseconds();
         let created = self.created;
         let milliseconds = time.to_milliseconds() as DateTimeUnit;
-        if created + milliseconds < now {
+        if created + milliseconds <= now {
             return true;
         }
         false

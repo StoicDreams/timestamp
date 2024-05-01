@@ -83,7 +83,7 @@ pub type TimeUnit = u64;
 /// assert_eq!(time.get_hour_of_day(), 0);
 /// assert_eq!(time.format(), "00:00:00.001");
 /// ```
-#[derive(Debug, Clone, Deserialize, Serialize, FromRow)]
+#[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct Time {
     milliseconds: TimeUnit,
 }

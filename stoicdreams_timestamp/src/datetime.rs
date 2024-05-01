@@ -17,7 +17,7 @@ pub type DateTimeUnit = i64;
 /// let datetime_display = datetime.format();
 /// println!("{}", datetime_display);
 /// ```
-#[derive(Debug, Clone, Deserialize, Serialize, FromRow)]
+#[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct DateTime {
     /// Milliseconds since the start of AD 0.
     milliseconds: DateTimeUnit,

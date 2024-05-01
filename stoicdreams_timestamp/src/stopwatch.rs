@@ -28,7 +28,7 @@ pub type StopWatchUnit = u128;
 /// let utc_formatted = "00:00:00.000000000";
 /// assert_ne!(utc_formatted, ellapsed.format());
 /// ```
-#[derive(Debug, Clone, Deserialize, Serialize, FromRow)]
+#[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct StopWatch {
     start: StopWatchUnit,
 }
