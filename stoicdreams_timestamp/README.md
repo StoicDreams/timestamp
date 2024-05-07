@@ -40,7 +40,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-stoicdreams_timestamp = "0.1.1"
+stoicdreams_timestamp = "0.1.2"
 ```
 
 Use prelude for simple access to all structs and methods.
