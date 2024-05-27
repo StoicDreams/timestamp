@@ -83,7 +83,7 @@ First, commit any changes to Git.
 Then, run the publish command from the `stoicdreams_timestamp` folder to publish.
 
 ```powershell
-# From the webui folder
+# From the stoicdreams_timestamp folder
 cargo publish
 ```
 
