@@ -37,7 +37,7 @@ Update your `Cargo.toml` file to add the `stoicdreams_timestamp` crate as a depe
 [package]
 name = "name_of_your_app"
 version = "0.1.0"
-edition = "2021"
+edition = "2024"
 
 [dependencies]
 stoicdreams_timestamp = "0.1.2"
